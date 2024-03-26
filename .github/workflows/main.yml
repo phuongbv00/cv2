@@ -15,11 +15,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '18'
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
       - name: Install Dependencies
         run: npm install
       - name: Build
         run: npm run build
-      - name: Upload artifact
+      - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
