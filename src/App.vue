@@ -109,7 +109,7 @@ function fmtDuration(startYear, startMonth, endYear, endMonth) {
               }} -
               {{ fmtDate(prj.endDtYr, prj.endDtMo) }}</b></small></div>
           </div>
-          <small v-if="prj.company" class="fw-light">{{ prj.company }}</small>
+          <small v-if="prj.company" class="fw-light text-secondary">{{ prj.company }}</small>
           <div class="mt-2 ms-4 ps-2 border-start border-3 fw-light">
             <p><small>{{ prj.des }}</small></p>
             <p>
