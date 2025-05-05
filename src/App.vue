@@ -115,7 +115,7 @@ function fmtDuration(startYear, startMonth, endYear, endMonth) {
             <p>
               <small class="d-block">Market: <b>{{ prj.market }}</b></small>
               <small class="d-block">Technologies: <b>{{ prj.tech.join(', ') }}</b></small>
-              <small class="d-block">Team: <b>{{ prj.team }}</b></small>
+              <small class="d-block" v-if="prj.team">Team: <b>{{ prj.team }}</b></small>
             </p>
             <div>
               <small>Role(s): <b>{{ prj.role }}</b></small>

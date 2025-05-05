@@ -37,6 +37,13 @@ defineProps({
         <i class="bi bi-geo-alt"></i>
         <span class="ps-2">{{ cv.address }}</span>
       </div>
+      <div class="d-flex align-items-center" v-if="cv.linkedin">
+        <i class="bi bi-linkedin"></i>
+        <a class="ps-2 text-white" :href="cv.linkedin" target="_blank">
+          {{ cv.linkedin }}
+          <i style="font-size: 10px;" class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </div>
       <div class="d-flex align-items-center" v-if="cv.github">
         <i class="bi bi-github"></i>
         <a class="ps-2 text-white" :href="cv.github" target="_blank">
