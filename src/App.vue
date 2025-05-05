@@ -25,20 +25,17 @@ function fmtDate(year, month, fmtForNullYear = 'present') {
 function fmtDuration(startYear, startMonth, endYear, endMonth) {
   const now = new Date()
   endYear = endYear ?? now.getFullYear()
-  endMonth = endMonth ?? now.getMonth() + 1
+  endMonth = endMonth ?? (now.getMonth() + 1)
 
-  let yearDiff = endYear - startYear
-  let monthDiff = endMonth - startMonth
+  let totalMonths = (endYear - startYear) * 12 + (endMonth - startMonth) + 1
+  const years = Math.floor(totalMonths / 12)
+  const months = totalMonths % 12
 
-  if (monthDiff < 0) {
-    yearDiff -= 1
-    monthDiff += 12
-  }
+  const parts = []
+  if (years > 0) parts.push(`${years} ${years > 1 ? 'yrs' : 'yr'}`)
+  if (months > 0) parts.push(`${months} ${months > 1 ? 'mos' : 'mo'}`)
 
-  const yrTxt = yearDiff > 0 ? `${yearDiff} ${yearDiff > 1 ? 'yrs' : 'yr'}` : ''
-  const moTxt = monthDiff > 0 ? `${monthDiff} ${monthDiff > 1 ? 'mos' : 'mo'}` : ''
-
-  return [yrTxt, moTxt].filter(Boolean).join(' ')
+  return parts.join(' ') || 'Less than 1 mo'
 }
 </script>
 
