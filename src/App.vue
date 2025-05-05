@@ -23,16 +23,22 @@ function fmtDate(year, month, fmtForNullYear = 'present') {
 }
 
 function fmtDuration(startYear, startMonth, endYear, endMonth) {
-  const startDt = new Date(startYear, startMonth - 1, 1)
-  const endDt = !endYear && !endMonth ? new Date() : new Date(endYear, endMonth - 1, 28)
-  const duration = Math.ceil((endDt - startDt) / 24 / 30 / 3600 / 100 / 12) / 10
-  const yrDuration = Math.floor(duration)
-  const moDuration = Math.ceil((duration - yrDuration) * 10)
-  const moDurationTxt = `${moDuration} ${moDuration > 1 ? 'mos' : 'mo'}`
-  if (0 === yrDuration) {
-    return moDurationTxt
+  const now = new Date()
+  endYear = endYear ?? now.getFullYear()
+  endMonth = endMonth ?? now.getMonth() + 1
+
+  let yearDiff = endYear - startYear
+  let monthDiff = endMonth - startMonth
+
+  if (monthDiff < 0) {
+    yearDiff -= 1
+    monthDiff += 12
   }
-  return `${yrDuration} ${yrDuration > 1 ? 'yrs' : 'yr'} ${moDurationTxt}`
+
+  const yrTxt = yearDiff > 0 ? `${yearDiff} ${yearDiff > 1 ? 'yrs' : 'yr'}` : ''
+  const moTxt = monthDiff > 0 ? `${monthDiff} ${monthDiff > 1 ? 'mos' : 'mo'}` : ''
+
+  return [yrTxt, moTxt].filter(Boolean).join(' ')
 }
 </script>
 
