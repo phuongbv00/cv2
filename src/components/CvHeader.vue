@@ -6,11 +6,11 @@ defineProps({
 
 <template>
   <div class="cv-header text-white d-flex">
-    <div class="cv-header-1 d-flex flex-column justify-content-center py-3 px-4">
+    <div class="cv-header-1 d-flex flex-column justify-content-center p-4">
       <h4 class="fw-bold text-uppercase text-center">{{ cv.fullName }}</h4>
       <i class="text-center">{{ cv.career }}</i>
     </div>
-    <div class="cv-header-2 px-3 py-4 d-flex flex-column gap-2">
+    <div class="cv-header-2 p-4 d-flex flex-column gap-2">
       <div class="d-flex align-items-center" v-if="cv.birthDate">
         <i class="bi bi-calendar-week"></i>
         <span class="ps-2">{{ cv.birthDate }}</span>
