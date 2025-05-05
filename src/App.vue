@@ -81,7 +81,7 @@ function fmtDuration(startYear, startMonth, endYear, endMonth) {
           <div class="text-secondary fw-light"><small>{{ exp.location }}</small></div>
         </div>
       </CvCat>
-      <CvCat icon="bi bi-patch-check-fill" title="CERTIFICATES" v-if="cv.certs">
+      <CvCat icon="bi bi-patch-check-fill" title="CERTIFICATES" v-if="cv.certs && cv.certs.length > 0">
         <div v-for="cert in cv.certs" class="pb-inside-avoid">
           <div class="d-flex fw-bold text-uppercase">
             <div>{{ cert.title }}</div>
